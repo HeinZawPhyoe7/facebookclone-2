@@ -1,5 +1,6 @@
 import { useState } from "react";
 import fLogo from "../../assets/facebookLogo.svg";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,9 +14,22 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = () => {
-    console.log("email", email);
-    console.log("password", password);
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(
+        `${process.env.BACKEND_URL}/api/auth/login`,
+        {
+          email: email,
+          password: password,
+        }
+      );
+
+      console.log("Login successful:", response.data);
+      localStorage.setItem("accessToken", response.data.access_token);
+      return response.data;
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (
@@ -33,7 +47,7 @@ const Login = () => {
           <div className="bg-gray-100 w-[400px] h-[400px] mx-auto space-y-4 p-10">
             <div>
               <input
-                type="text"
+                type="email"
                 onChange={handleEmailChange}
                 className="p-4 border border-blue-400 rounded-md w-full"
                 placeholder="Enter Emailaddress"
