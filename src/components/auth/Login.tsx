@@ -1,0 +1,76 @@
+import { useState } from "react";
+import fLogo from "../../assets/facebookLogo.svg";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (e: any) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: any) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = () => {
+    console.log("email", email);
+    console.log("password", password);
+  };
+
+  return (
+    <div className="">
+      <div className="flex bg-gray-200 h-screen">
+        <div className=" my-auto">
+          <img src={fLogo} className="w-[320px] h-[106px] mx-auto" alt="" />
+          <h3 className="w-1/2 mx-auto">
+            Facebook helps you connect and share with the people in your life.
+          </h3>
+        </div>
+
+        {/* right div */}
+        <div className="bg-amber-300 mx-auto my-auto">
+          <div className="bg-gray-100 w-[400px] h-[400px] mx-auto space-y-4 p-10">
+            <div>
+              <input
+                type="text"
+                onChange={handleEmailChange}
+                className="p-4 border border-blue-400 rounded-md w-full"
+                placeholder="Enter Emailaddress"
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                onChange={handlePasswordChange}
+                className="p-4 border border-blue-400 rounded-md w-full"
+                placeholder="Password"
+              />
+            </div>
+            <div className="flex justify-center">
+              <button
+                onClick={handleLogin}
+                className="bg-blue-500 w-full rounded-md py-2 text-white "
+              >
+                Log in
+              </button>
+            </div>
+            <div>
+              <p className="text-blue-400 text-[10px] text-center">
+                Forget Password?
+              </p>
+            </div>
+            <hr />
+            <div className="flex justify-center">
+              <button className="bg-green-500 text-white p-2 rounded-md text-xs">
+                Create new account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
