@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        `${process.env.BACKEND_URL}/api/auth/login`,
+        `${process.env.VITE_BACKEND_URL}/api/auth/login`,
         {
           email: email,
           password: password,
