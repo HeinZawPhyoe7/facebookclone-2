@@ -1,13 +1,15 @@
-import Login from './components/auth/Login'
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
 const App = () => {
   return (
-    <div>
+    <div className="">
       <div>
-        <Login/>
+        {/* <Login/> */}
+        <Register />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
