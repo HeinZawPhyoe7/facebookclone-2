@@ -1,10 +1,13 @@
 import { useState } from "react";
 import fLogo from "../../assets/facebookLogo.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navgite = useNavigate();
 
   const handleEmailChange = (e: any) => {
     setEmail(e.target.value);
@@ -25,17 +28,24 @@ const Login = () => {
       );
 
       console.log("Login successful:", response.data);
-      localStorage.setItem("accessToken", response.data.access_token);
+      if (response.data.access_token) {
+        localStorage.setItem("accessToken", response.data.access_token);
+        navgite("/home");
+      }
       return response.data;
     } catch (error) {
       console.error("Login failed:", error);
     }
   };
 
+  const handleCreate = () => {
+    navgite("/register");
+  };
+
   return (
     <div className="">
       <div className="flex bg-gray-200 h-screen">
-        <div className=" my-auto">
+        <div className="hidden md:block my-auto">
           <img src={fLogo} className="w-[320px] h-[106px] mx-auto" alt="" />
           <h3 className="w-1/2 mx-auto">
             Facebook helps you connect and share with the people in your life.
@@ -76,7 +86,10 @@ const Login = () => {
             </div>
             <hr />
             <div className="flex justify-center">
-              <button className="bg-green-500 text-white p-2 rounded-md text-xs">
+              <button
+                onClick={handleCreate}
+                className="bg-green-500 text-white p-2 rounded-md text-xs"
+              >
                 Create new account
               </button>
             </div>

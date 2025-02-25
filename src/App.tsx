@@ -1,12 +1,10 @@
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
+import AppRoute from "./AppRoute";
 
 const App = () => {
   return (
     <div className="">
       <div>
-        {/* <Login/> */}
-        <Register />
+        <AppRoute/>
       </div>
     </div>
   );

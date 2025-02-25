@@ -13,6 +13,8 @@ const Register = () => {
   const [dateofbirth, setDateofbirth] = useState("");
   const [username, setUsername] = useState("");
 
+  
+
   const handleNameChange = (e: any) => {
     setName(e.target.value);
   };
