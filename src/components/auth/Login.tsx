@@ -53,13 +53,13 @@ const Login = () => {
         </div>
 
         {/* right div */}
-        <div className="bg-amber-300 mx-auto my-auto">
+        <div className="mx-auto my-auto">
           <div className="bg-gray-100 w-[400px] h-[400px] mx-auto space-y-4 p-10">
             <div>
               <input
                 type="email"
                 onChange={handleEmailChange}
-                className="p-4 border border-blue-400 rounded-md w-full"
+                className="p-4 border border-blue-400 shadow-md rounded-md w-full"
                 placeholder="Enter Emailaddress"
               />
             </div>
@@ -67,7 +67,7 @@ const Login = () => {
               <input
                 type="password"
                 onChange={handlePasswordChange}
-                className="p-4 border border-blue-400 rounded-md w-full"
+                className="p-4 border border-blue-400 shadow-md rounded-md w-full"
                 placeholder="Password"
               />
             </div>
@@ -75,7 +75,7 @@ const Login = () => {
               <button
                 onClick={handleLogin}
                 className="bg-blue-500 w-full rounded-md py-2 text-white "
-              >
+              > 
                 Log in
               </button>
             </div>
