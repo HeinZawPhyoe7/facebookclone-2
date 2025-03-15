@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DeletePost from "../post/DeletePost";
 
 const HomePage = () => {
   const [posts, setPosts] = useState<any>([]);
@@ -37,9 +38,12 @@ const HomePage = () => {
             className="bg-white h-[350px] shadow-lg rounded-lg p-6"
           >
             {post.title && (
-              <h2 className="font-semibold text-gray-900 text-sm capitalize">
-                {post.title}
-              </h2>
+              <div className="flex justify-between">
+                <h2 className="font-semibold text-gray-900 text-sm capitalize">
+                  {post.title}
+                </h2>
+                <DeletePost postId={post.id} />
+              </div>
             )}
             {post.description && (
               <p className="text-gray-700 mt-2">{post.description}</p>
